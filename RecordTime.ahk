@@ -1,4 +1,4 @@
-RecordFile = L:\KuaiPan\FastRecordTime.txt ;文件记录地址
+﻿RecordFile = L:\Dropbox\FastRecordTime.txt ;文件记录地址
 
 !4::
 	Run,%RecordFile%
@@ -14,7 +14,7 @@ Return
 	Gui, Add, Button, x222 y120 w80 h30 , OK
 
 	GuiControl, , UserName , %A_UserName%
-	GuiControl, , StartTime , %A_YYYY%-%A_MM%-%A_WDay% %A_Hour%:%A_Min%:%A_Sec%
+	GuiControl, , StartTime , %A_YYYY%-%A_MM%-%A_DD% %A_Hour%:%A_Min%:%A_Sec%
 
 	SettingForm_x:=Round((A_ScreenWidth-315)/2)
 
@@ -37,7 +37,7 @@ ButtonOK:
 	info = %StartTime%   %UseTime%   %Things%   %UserName%`n`n
 	;MsgBox,%info%
 	FileAppend,%info%,%RecordFile% ;写入文件
-	TrayTip,FastRecordTime,%info%,100 ;显示提示
+	TrayTip,FastRecordTime,%info%,50 ;显示提示
 	Gui, Destroy
 	Return
 }
@@ -48,7 +48,6 @@ ButtonOK:
 	Gosub,ButtonOK
 	Return
 }
-
 
 
 
